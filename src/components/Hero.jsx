@@ -5,7 +5,9 @@ const Hero = () => {
     return (
         <div>
             <div className='flex flex-col gap-6'>
-                <h3 className='flex items-center gap-2 uppercase text-base text-[var(--text-secondary)] '> <div className="w-12 h-[2px] bg-[var(--text-secondary)]"></div>Welcome to Luxury</h3>
+                <h3 className='flex items-center tracking-wider gap-2 uppercase text-base font-bold text-[var(--text-secondary)] '>
+                    <div className="w-12 h-[2px] bg-[var(--text-secondary)]"></div>
+                    Welcome to Luxury</h3>
                 <h1 className='text-6xl text-[var(--navtext)]'>LuxuryStay</h1>
                 <p className='w-full lg:w-160'> Experience unparalleled luxury at LuxuryStay Hospitality. Nestled in the heart of the city, our hotel offers world-class amenities, exceptional service, and unforgettable experiences that define the art of hospitality.</p>
                 <div className='flex gap-6 items-center'>
