@@ -53,59 +53,74 @@ export const signOut = createAsyncThunk(
     }
 )
 
-const authslice= createSlice({
-    name:'auth' , 
+const storedUser = typeof window !== 'undefined' ? localStorage.getItem('user') : null
+let initialUser = null
+try {
+  initialUser = storedUser ? JSON.parse(storedUser) : null
+} catch (e) {
+  initialUser = null
+}
+
+const authslice = createSlice({
+    name: 'auth', 
     initialState: {
-        user:null , 
-        loading : null , 
-        error : null,
-    
+        user: initialUser, 
+        loading: null, 
+        error: null,
     },
-    reducers : {
-        setUser : (state,action) => {
+    reducers: {
+        setUser: (state, action) => {
           state.user = action.payload
+          if (action.payload) {
+            localStorage.setItem('user', JSON.stringify(action.payload))
+          } else {
+            localStorage.removeItem('user')
+          }
         },
-        clearError : (state) => {
+        clearError: (state) => {
           state.error = null
         }
-        
-        
     },
     extraReducers: (builder) => {
       builder
-    //   sign up
-      .addCase(signupUser.pending, (state) =>{
+    // sign up
+      .addCase(signupUser.pending, (state) => {
         state.loading = true 
         state.error = null
-      }).addCase(signupUser.fulfilled, (state , action) =>{
+      }).addCase(signupUser.fulfilled, (state, action) => {
         state.loading = false 
         state.user = action.payload
-      }).addCase(signupUser.rejected, (state , action) =>{
+        if (action.payload) {
+          localStorage.setItem('user', JSON.stringify(action.payload))
+        }
+      }).addCase(signupUser.rejected, (state, action) => {
         state.loading = false 
         state.error = action.payload
       })
 
     // signin 
-    .addCase(signinUser.pending, (state) => {
+      .addCase(signinUser.pending, (state) => {
         state.loading = true
         state.error = null
       })
       .addCase(signinUser.fulfilled, (state, action) => {
         state.loading = false
         state.user = action.payload
+        if (action.payload) {
+          localStorage.setItem('user', JSON.stringify(action.payload))
+        }
       })
       .addCase(signinUser.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload
       })
-    //   sign out
-
+    // sign out
       .addCase(signOut.fulfilled, (state) => {
         state.user = null
         state.loading = false
+        localStorage.removeItem('user')
       })
     }
-    
 })
 
 export const { setUser , clearError} = authslice.actions

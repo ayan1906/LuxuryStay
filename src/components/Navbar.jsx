@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <nav className="bg-transparent fixed w-full z-20 top-0 start-0 text-amber-100">
       <div className="bg-gray-900/40 rounded-b-2xl max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      
+
         <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <span className="self-center text-xl text-[var(--navtext)] font-semibold whitespace-nowrap">LuxuryStay</span>
         </NavLink>
@@ -49,7 +49,7 @@ const Navbar = () => {
           >
             {user ? (
               <div>
-                <span className='bg-[var(--text-secondary)] rounded-full px-2 py-1 text-black font-bold'>{username}</span>
+                <span className='bg-[var(--text-secondary)]  rounded-full px-2 py-1 text-black font-bold'>{username.toUpperCase()}</span>
               </div>
             ) : (
 
