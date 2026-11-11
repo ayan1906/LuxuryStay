@@ -16,8 +16,8 @@ const Rooms = () => {
     }, [dispatch, rooms.length])
 
     return (
-        <div className='max-w-6xl mx-auto px-4 w-full flex flex-col'>
-            <h3 className='text-[var(--text-secondary)] mb-2 text-sm flex items-center gap-2 uppercase tracking-wider'><Sparkles size={18} /> our collection</h3>
+        <div className='max-w-6xl mx-auto px-4  w-full flex flex-col'>
+            <h3 className='text-[var(--text-secondary)] my-4 text-sm flex items-center gap-2 uppercase tracking-wider'><Sparkles size={18} /> our collection</h3>
             <div className='flex items-center justify-between mb-10'>
                 <h1 className='text-3xl tracking-wider'>Featured Rooms & Suites</h1>
                 <NavLink className={'text-[var(--text-secondary)] text-sm flex items-center gap-2 group'}>View All Rooms <ArrowRight className='group-hover:translate-x-1.5 transition duration-200' size={18} /></NavLink>

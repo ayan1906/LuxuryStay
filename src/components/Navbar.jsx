@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { User, UserRound, Menu } from 'lucide-react'
+import { useSelector, useDispatch } from 'react-redux'
+import { signOut } from '../redux/features/authSlice';
 
 const Navbar = () => {
   const navs = [
@@ -10,31 +12,49 @@ const Navbar = () => {
     { name: 'Services', to: '/services' },
     { name: 'Reviews', to: '/reviews' },
   ]
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+  const username = user?.user_metadata?.firstname || user?.email?.split('@')[0][0]
+  
+  const handlelogout = () => {
+    dispatch(signOut())
+  }
+
   return (
-    <nav className="bg-transparent fixed w-full z-20 top-0 start-0  text-amber-100 h-70">
+    <nav className="bg-transparent fixed w-full z-20 top-0 start-0 text-amber-100">
       <div className="bg-gray-900/40 rounded-b-2xl max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-
-
+      
         <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <span className="self-center text-xl text-[var(--navtext)] font-semibold whitespace-nowrap">LuxuryStay</span>
         </NavLink>
 
         <div className="flex items-center md:order-2 gap-6 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
-          <NavLink className={'text-base text-[var(--navtext)] rounded-full md:me-0 hover:text-[var(--text-secondary)] transition duration-200'}>
-            Login
+
+          {user ? <NavLink onClick={handlelogout} className={'text-base text-[var(--navtext)] rounded-full md:me-0 hover:text-[var(--text-secondary)] transition duration-200'}>
+            LogOut
           </NavLink>
+            :
+            <NavLink to={'/signup'} className={'text-base text-[var(--navtext)] rounded-full md:me-0 hover:text-[var(--text-secondary)] transition duration-200'}>
+              Signup
+            </NavLink>}
 
           <NavLink
-            to={'/'}
+            to={'/guestarea'}
             type="button"
             className="flex items-center gap-2 text-base text-[var(--navtext)] rounded-full md:me-0 hover:text-[var(--text-secondary)] transition duration-200"
             id="user-menu-button"
-            aria-expanded={isDropdownOpen}
+
           >
-            <UserRound />
+            {user ? (
+              <div>
+                <span className='bg-[var(--text-secondary)] rounded-full px-2 py-1 text-black font-bold'>{username}</span>
+              </div>
+            ) : (
+
+              <div><UserRound /></div>
+            )}
             Guest Area
           </NavLink>
 
