@@ -6,7 +6,7 @@ export const fetchRooms = createAsyncThunk(
   async (_, thunkapi) => {
     try {
       const response = await fetch(
-        "hotel-rooms-db.json"
+        "https://gist.githubusercontent.com/ayan1906/c409d52f4345afa3330fa073ea68a009/raw/e794234b99492b8a198e3007f2ca8b9bb8642c0a/gistfile1.txt"
       );
 
       if (!response.ok) {
