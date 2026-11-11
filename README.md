@@ -159,7 +159,7 @@ Custom colors are configured in `src/index.css`:
 ## 👨‍💻 Author
 
 - **AYAN** — *Developer & Maintainer*
-- GitHub: [@your-username](https://github.com/)
+- GitHub: [@ayan1906](https://github.com/)
 
 ---
 
