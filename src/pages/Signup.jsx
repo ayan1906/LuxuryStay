@@ -1,9 +1,10 @@
 import { ArrowRight, Eye, EyeClosed, CheckCircle2 } from 'lucide-react'
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink , useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { signupUser } from '../redux/features/authSlice'
+
 
 const Signup = () => {
   
@@ -11,14 +12,14 @@ const Signup = () => {
   const [ismodalopen, setismodalopen] = useState(false)
   const dispatch = useDispatch()
   const { loading, error } = useSelector(state => state.auth)
-
+const navigate = useNavigate()
   const onsubmit = async (data) => {
     try {
       await dispatch(
         signupUser({
           email: data.email,
           password: data.password,
-          firstname: data.firstname,
+          firstname: data.firstName,
           lastname: data.lastname,
         })
       ).unwrap()
@@ -28,6 +29,7 @@ const Signup = () => {
 
       setTimeout(() => {
         setismodalopen(false)
+        navigate('/')
         reset()
       }, 2000)
       

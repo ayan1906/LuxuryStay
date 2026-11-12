@@ -49,7 +49,7 @@ const Navbar = () => {
           >
             {user ? (
               <div>
-                <span className='bg-[var(--text-secondary)]  rounded-full px-2 py-1 text-black font-bold'>{username.toUpperCase()}</span>
+                <span className='bg-[var(--text-secondary)]  rounded-full px-2 py-1 text-black font-bold'>{username}</span>
               </div>
             ) : (
 
@@ -57,7 +57,6 @@ const Navbar = () => {
             )}
             Guest Area
           </NavLink>
-
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

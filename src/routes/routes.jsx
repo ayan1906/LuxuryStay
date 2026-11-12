@@ -8,20 +8,27 @@ import Reviews from "../pages/Reviews";
 import Login from "../pages/Login";
 import Guestarea from "../pages/Guestarea";
 import Signup from "../pages/Signup";
+import Privateroute from "../components/Privateroute";
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Mainlayouts/>,
+        element: <Mainlayouts />,
         children: [
-            {path: '/' , element: <Home/>},
-            {path: '/about' , element: <About/>},
-            {path: '/rooms' , element: <Rooms/>},
-            {path: '/services' , element: <Services/>},
-            {path: '/reviews' , element: <Reviews/>},
-            {path: '/signup' , element: <Signup/>},
-            {path: '/login' , element: <Login/>},
-            {path: '/guestarea' , element: <Guestarea/>},
+            { path: '/', element: <Home /> },
+            { path: '/about', element: <About /> },
+            { path: '/rooms', element: <Rooms /> },
+            { path: '/services', element: <Services /> },
+            { path: '/reviews', element: <Reviews /> },
+            { path: '/signup', element: <Signup /> },
+            { path: '/login', element: <Login /> },
+
+            {
+                path: '/guestarea', element:
+                    <Privateroute>
+                        <Guestarea />
+                    </Privateroute>
+            },
         ]
     }]
 )
