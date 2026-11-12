@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Roompage from '../components/Roompage'
 const Rooms = () => {
   return (
-    <div>Rooms</div>
+    <div>
+      <Roompage/>
+    </div>
   )
 }
 

@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
-  const username = user?.user_metadata?.firstname || user?.email?.split('@')[0][0]
+  const username = user?.user_metadata?.firstname[0] || user?.email?.split('@')[0][0]
   
   const handlelogout = () => {
     dispatch(signOut())
@@ -30,7 +30,7 @@ const Navbar = () => {
           <span className="self-center text-xl text-[var(--navtext)] font-semibold whitespace-nowrap">LuxuryStay</span>
         </NavLink>
 
-        <div className="flex items-center md:order-2 gap-6 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
+        <div className="flex items-center md:order-2 gap-2 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
 
           {user ? <NavLink onClick={handlelogout} className={'text-base text-[var(--navtext)] rounded-full md:me-0 hover:text-[var(--text-secondary)] transition duration-200'}>
             LogOut

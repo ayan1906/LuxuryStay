@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Guestarea from "../pages/Guestarea";
 import Signup from "../pages/Signup";
 import Privateroute from "../components/Privateroute";
+import Roomdetail from "../pages/Roomdetail";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
             { path: '/reviews', element: <Reviews /> },
             { path: '/signup', element: <Signup /> },
             { path: '/login', element: <Login /> },
+            { path: '/roomdetail/:id', element: <Roomdetail /> },
 
             {
                 path: '/guestarea', element:
