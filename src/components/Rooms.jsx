@@ -20,7 +20,7 @@ const Rooms = () => {
             <h3 className='text-[var(--text-secondary)] my-4 text-sm flex items-center gap-2 uppercase tracking-wider'><Sparkles size={18} /> our collection</h3>
             <div className='flex items-center justify-between mb-10'>
                 <h1 className='text-3xl tracking-wider'>Featured Rooms & Suites</h1>
-                <NavLink className={'text-[var(--text-secondary)] text-sm flex items-center gap-2 group'}>View All Rooms <ArrowRight className='group-hover:translate-x-1.5 transition duration-200' size={18} /></NavLink>
+                <NavLink to={'/rooms'} className={'text-[var(--text-secondary)] text-sm flex items-center gap-2 group'}>View All Rooms <ArrowRight className='group-hover:translate-x-1.5 transition duration-200' size={18} /></NavLink>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-10 w-full'>
                 {sliceroom.map((room, i) => (
@@ -53,8 +53,8 @@ const Rooms = () => {
                                 <h3 className='flex items-center gap-1'><Scan size={16}/> {room.size_sqft}m<sup>2</sup></h3>
                             </div>
                             <div className='flex items-center justify-around mt-4'>
-                                <NavLink to={`/roomdetail/${room.id}`} className='text-sm border border-gray-500 px-6 py-1 rounded-md cursor-pointer hover:bg-gray-200 transition duration-200'>View Details</NavLink>
-                                <NavLink className='text-sm bg-[var(--text-secondary)] px-6 py-1 rounded-md cursor-pointer hover:bg-amber-600 transition duration-200'>Book Now</NavLink>
+                                <NavLink to={`/roomdetail/${room.id}`} className='text-sm border border-gray-500 px-6 py-1 rounded-md cursor-pointer hover:bg-gray-200 transition duration-200'>Details & Reservation</NavLink>
+                               
                             </div>
                         </div>
                     </div>

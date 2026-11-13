@@ -5,10 +5,13 @@ import About from "../pages/About";
 import Rooms from "../pages/Rooms";
 import Services from "../pages/Services";
 import Login from "../pages/Login";
-import Guestarea from "../pages/Guestarea";
+import Guestarea from "../layouts/Guestarea";
 import Signup from "../pages/Signup";
 import Privateroute from "../components/Privateroute";
 import Roomdetail from "../pages/Roomdetail";
+import GuestHome from "../components/guestarea/GuestHome";
+import GuestReservation from "../components/guestarea/GuestReservation";
+import GuestProfile from "../components/guestarea/GuestProfile";
 
 export const router = createBrowserRouter([
     {
@@ -24,10 +27,18 @@ export const router = createBrowserRouter([
             { path: '/roomdetail/:id', element: <Roomdetail /> },
 
             {
-                path: '/guestarea', element:
+                path: '/guestarea', element: (
                     <Privateroute>
                         <Guestarea />
                     </Privateroute>
+                ),
+                children: [
+                    
+                    {  index: true, path: 'guesthome', element: <GuestHome /> },
+                    { path: 'guestreserv', element: <GuestReservation /> },
+                    { path: 'guestprofile', element: <GuestProfile /> },
+                ]
+
             },
         ]
     }]

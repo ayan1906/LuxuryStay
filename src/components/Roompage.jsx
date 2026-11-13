@@ -3,6 +3,9 @@ import { useDispatch , useSelector } from "react-redux"
 import { fetchRooms } from "../redux/features/roomSlice"
 import { Star , Scan } from "lucide-react"
 import { NavLink } from "react-router-dom"
+
+
+
 const Roompage = () => {
   const dispatch = useDispatch()
   const { rooms } = useSelector(state => state.rooms)
@@ -60,8 +63,7 @@ const Roompage = () => {
                                 <h3 className='flex items-center gap-1'><Scan size={16}/> {room.size_sqft}m<sup>2</sup></h3>
                             </div>
                             <div className='flex items-center justify-around mt-4'>
-                                <NavLink to={`/roomdetail/${room.id}`} className='text-sm border border-gray-500 px-6 py-1 rounded-md cursor-pointer hover:bg-gray-200 transition duration-200'>View Details</NavLink>
-                                <NavLink className='text-sm bg-[var(--text-secondary)] px-6 py-1 rounded-md cursor-pointer hover:bg-amber-600 transition duration-200'>Book Now</NavLink>
+                                <NavLink to={`/roomdetail/${room.id}`} className='text-sm border border-gray-500 px-6 py-1 rounded-md cursor-pointer hover:bg-gray-200 transition duration-200'>Details & Reservation</NavLink>
                             </div>
                         </div>
                     </div>

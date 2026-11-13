@@ -10,7 +10,6 @@ const Navbar = () => {
     { name: 'About', to: '/about' },
     { name: 'Rooms', to: '/rooms' },
     { name: 'Services', to: '/services' },
-    { name: 'Reviews', to: '/reviews' },
   ]
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -41,7 +40,7 @@ const Navbar = () => {
             </NavLink>}
 
           <NavLink
-            to={'/guestarea'}
+            to={'/guestarea/guesthome'}
             type="button"
             className="flex items-center gap-2 text-base text-[var(--navtext)] rounded-full md:me-0 hover:text-[var(--text-secondary)] transition duration-200"
             id="user-menu-button"
