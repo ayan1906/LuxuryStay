@@ -73,11 +73,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/reviews" className="hover:text-[#E5A93C] transition duration-200 inline-block">
-                  Guest Reviews
-                </Link>
-              </li>
-              <li>
                 <Link to="/rooms" className="hover:text-[#E5A93C] transition duration-200 inline-block">
                   Check Availability
                 </Link>
